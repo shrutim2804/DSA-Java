@@ -1,7 +1,9 @@
 Problem: Find missing no. from given int arr[] and return the missing no from [0,n]
   Leetcode No.- 268
 
-
+BRUTE FORCE-
+  Time Complexity: O(n^2)
+--------------------------
 class Solution {
     public int missingNumber(int[] nums) {
         for(int i=0;i<=nums.length;i++){
@@ -24,4 +26,25 @@ class Solution {
 
     }
 
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+OPTIMIZATION USING HASHMAP-
+  Time Complexity: O(n)
+-----------------------------------  
+ 
+  import java.util.HashMap;
+class Solution {
+    public int missingNumber(int[] nums) {
+        HashMap<Integer,Boolean> map=new HashMap<>();
+        for(int num:nums){
+            map.put(num,true);
+        }
+        for(int i=0;i<=nums.length;i++){
+            if(!map.containsKey(i))
+                return i;
+        }
+        return -1;
+    }
 }
