@@ -2,7 +2,6 @@ Leetcode qs no= 70
 ================================================================================================
 class Solution {
     public int climbStairs(int n) {
-        int c=0;
         int[] s=new int[45];
         s[0]=1;
         s[1]=2;
