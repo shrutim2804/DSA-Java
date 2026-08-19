@@ -2,14 +2,21 @@ Leetcode qs no= 70
 ================================================================================================
 class Solution {
     public int climbStairs(int n) {
-        int[] s=new int[45];
-        s[0]=1;
-        s[1]=2;
-        for(int i=2;i<45;i++){
-            s[i]=s[i-2]+s[i-1];
+
+        if (n <= 2) {
+            return n;
         }
 
-      return s[n-1];
-        
+        int prev1 = 1;
+        int prev2 = 2;
+        int current=0;
+        for (int i = 3; i <= n; i++) {
+             current = prev1 + prev2;
+
+            prev1 = prev2;
+            prev2 = current;
+        }
+
+        return current;
     }
 }
